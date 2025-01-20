@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新規登録</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>新規登録</h1>
+  <form action="/try_register" method="POST">
+    <label>ユーザー名: <input type="text" name="user"></label><br>
+    <label>パスワード: <input type="password" name="pw"></label><br>
+    <button type="submit">登録</button>
+  </form>
+  <p><a href="/login">ログイン画面に戻る</a></p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>掲示板</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>会員制の掲示板 - {{ user }}</h1>
+  <button onclick="location.href='/logout'">ログアウト</button>
+  <form action="/write" method="POST" enctype="multipart/form-data">
+    <textarea name="ta" rows="4" cols="50"></textarea><br>
+    <label><input type="checkbox" name="anonymous"> 匿名で投稿</label><br>
+    <label>画像をアップロード: <input type="file" name="image"></label><br>
+    <button type="submit">投稿する</button>
+  </form>
+  <hr>
+  {% for i in data %}
+  <div>
+    <strong>{{ i.name }}</strong> - <small>{{ i.date }}</small>
+    <p>{{ i.text }}</p>
+    {% if i.image %}
+    <div><img src="{{ i.image }}" alt="Uploaded Image" style="max-width: 100%;"></div>
+    {% endif %}
+  </div>
+  <hr>
+  {% endfor %}
+</body>
+</html>
